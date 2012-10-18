@@ -18,6 +18,7 @@
 		CA3A9E8A1630112500471009 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA3A9E891630112500471009 /* Default-568h@2x.png */; };
 		CA3A9E961630122900471009 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3A9E951630122900471009 /* Storyboard.storyboard */; };
 		CA3A9EC016301CFB00471009 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3A9EBF16301CFB00471009 /* AppController.m */; };
+		CA3A9EC31630508900471009 /* RootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3A9EC21630508900471009 /* RootVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		CA3A9E951630122900471009 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		CA3A9EBE16301CFB00471009 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		CA3A9EBF16301CFB00471009 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		CA3A9EC11630508900471009 /* RootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootVC.h; sourceTree = "<group>"; };
+		CA3A9EC21630508900471009 /* RootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				CA3A9E951630122900471009 /* Storyboard.storyboard */,
 				CA3A9EBE16301CFB00471009 /* AppController.h */,
 				CA3A9EBF16301CFB00471009 /* AppController.m */,
+				CA3A9EC11630508900471009 /* RootVC.h */,
+				CA3A9EC21630508900471009 /* RootVC.m */,
 			);
 			path = LessAD;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				CA3A9E801630112500471009 /* main.m in Sources */,
 				CA3A9E841630112500471009 /* AppDelegate.m in Sources */,
 				CA3A9EC016301CFB00471009 /* AppController.m in Sources */,
+				CA3A9EC31630508900471009 /* RootVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

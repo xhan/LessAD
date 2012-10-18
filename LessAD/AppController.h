@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AppController : NSObject<NSCoding>
+@interface AppController : NSObject
 
 + (id)controller;
 + (void)release;

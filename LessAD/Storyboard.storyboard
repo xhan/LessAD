@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - LessAD-->
+        <!--RootVC - LessAD-->
         <scene sceneID="mwh-8C-LJ3">
             <objects>
-                <tableViewController id="vGm-7n-Cyo" sceneMemberID="viewController">
+                <tableViewController id="vGm-7n-Cyo" customClass="RootVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="T4V-T0-0E0">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                                                     <rect key="frame" x="203" y="8" width="79" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="onSwitchValueChanged:" destination="nG8-wR-u1P" eventType="valueChanged" id="Nwd-CU-9eV"/>
+                                                        <action selector="onSwitchPressed:" destination="vGm-7n-Cyo" eventType="valueChanged" id="jWS-w0-nqT"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="广告过滤" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G47-I7-xhd">
@@ -124,9 +124,13 @@
                         </sections>
                     </tableView>
                     <navigationItem key="navigationItem" title="LessAD" id="Uld-zH-r58"/>
+                    <connections>
+                        <outlet property="blockCntLabel" destination="o4n-Uz-VRC" id="fFQ-W8-Pen"/>
+                        <outlet property="switcher" destination="VqL-GV-jUn" id="GV9-zG-fPz"/>
+                        <outlet property="versionLabel" destination="qlR-97-sh8" id="Olr-8g-Qlz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZY-QC-8EE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="nG8-wR-u1P" customClass="AppController"/>
             </objects>
             <point key="canvasLocation" x="8" y="77"/>
         </scene>
@@ -169,10 +173,13 @@
         </scene>
     </scenes>
     <classes>
-        <class className="AppController" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppController.h"/>
+        <class className="RootVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootVC.h"/>
             <relationships>
-                <relationship kind="action" name="onSwitchValueChanged:"/>
+                <relationship kind="action" name="onSwitchPressed:"/>
+                <relationship kind="outlet" name="blockCntLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="switcher" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>

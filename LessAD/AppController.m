@@ -36,15 +36,8 @@ static AppController*_share = nil;
     return _share;
 }
 
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    
-}
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-    return self;
-}
+
+
 
 - (IBAction)onSwitchValueChanged:(id)sender
 {
