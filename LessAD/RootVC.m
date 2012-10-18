@@ -19,7 +19,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.versionLabel.text = @"0.7";
+    self.blockCntLabel.text = @"0";
+    self.switcher.on = YES;
 }
 
 
