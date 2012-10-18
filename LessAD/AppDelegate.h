@@ -9,7 +9,7 @@
 
 /*
     on storyboard app with ARC support:
-    1. after storyboard inited, the app delegate's application did finished will be invoked
+    1. after storyboard initialized, the app delegate's application did finished will be invoked
     2. custom object created in storyboard, will be release soon, we need to retain it ourself
         (in this case, i used a static ivar to refer the initialized instance, so it woun't be 
         released automatically)

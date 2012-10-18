@@ -19,6 +19,8 @@
 		CA3A9E961630122900471009 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3A9E951630122900471009 /* Storyboard.storyboard */; };
 		CA3A9EC016301CFB00471009 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3A9EBF16301CFB00471009 /* AppController.m */; };
 		CA3A9EC31630508900471009 /* RootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3A9EC21630508900471009 /* RootVC.m */; };
+		CAA19E831630674B00AB23A7 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CAA19E811630674B00AB23A7 /* Icon.png */; };
+		CAA19E841630674B00AB23A7 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAA19E821630674B00AB23A7 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		CA3A9EBF16301CFB00471009 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		CA3A9EC11630508900471009 /* RootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootVC.h; sourceTree = "<group>"; };
 		CA3A9EC21630508900471009 /* RootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootVC.m; sourceTree = "<group>"; };
+		CAA19E811630674B00AB23A7 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = "Resources/app-icons/Icon.png"; sourceTree = SOURCE_ROOT; };
+		CAA19E821630674B00AB23A7 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/app-icons/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 		CA3A9E7A1630112500471009 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CAA19E811630674B00AB23A7 /* Icon.png */,
+				CAA19E821630674B00AB23A7 /* Icon@2x.png */,
 				CA3A9E7B1630112500471009 /* LessAD-Info.plist */,
 				CA3A9E7C1630112500471009 /* InfoPlist.strings */,
 				CA3A9E7F1630112500471009 /* main.m */,
@@ -168,6 +174,8 @@
 				CA3A9E881630112500471009 /* Default@2x.png in Resources */,
 				CA3A9E8A1630112500471009 /* Default-568h@2x.png in Resources */,
 				CA3A9E961630122900471009 /* Storyboard.storyboard in Resources */,
+				CAA19E831630674B00AB23A7 /* Icon.png in Resources */,
+				CAA19E841630674B00AB23A7 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
