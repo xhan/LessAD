@@ -1,7 +1,7 @@
 Package: com.xhan.lessad.tweak
 Name: tweak
-Depends: mobilesubstrate
-Version: 0.0.1
+Depends: firmware (>= 5.0), mobilesubstrate
+Version: 0.7.0
 Architecture: iphoneos-arm
 Description: An awesome MobileSubstrate tweak!
 Maintainer: xhan
