@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "../../shared/LessAD.h"
 
-#define PLIST_FILE @"/var/mobile/Library/Preferences/com.xhan.LessAD.plist"
-#define KEY_ACTIVE @"ABEnabled"
+
 // Required
 
 BOOL isCapable()
@@ -13,7 +13,7 @@ BOOL isCapable()
 BOOL isEnabled()
 {
 	NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:PLIST_FILE];
-	id value = [settings objectForKey:KEY_ACTIVE];
+	id value = [settings objectForKey:KEYON];
 	BOOL ABEnabled =  value ? [value boolValue] : YES;
 	return ABEnabled;
 }
@@ -21,16 +21,10 @@ BOOL isEnabled()
 void setState(BOOL enabled)
 {
     NSMutableDictionary *plistDict = [NSMutableDictionary dictionaryWithContentsOfFile:PLIST_FILE];
-    if (enabled) 
-    {
-            [plistDict setValue:[NSNumber numberWithBool:YES] forKey:KEY_ACTIVE];
-            [plistDict writeToFile:PLIST_FILE atomically: YES];
-    }
-    else
-    {
-            [plistDict setValue:[NSNumber numberWithBool:NO] forKey:KEY_ACTIVE];
-            [plistDict writeToFile:PLIST_FILE atomically: YES];
-    }
+
+    [plistDict setValue:[NSNumber numberWithBool:enabled] forKey:KEYON];
+    [plistDict writeToFile:PLIST_FILE atomically: YES];
+
 }
 
 float getDelayTime()

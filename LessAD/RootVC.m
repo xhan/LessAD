@@ -7,21 +7,24 @@
 //
 
 #import "RootVC.h"
-
+#import "LessAD.h"
 @interface RootVC ()
 
 @end
 
 @implementation RootVC
-
+{
+    
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.versionLabel.text = @"0.7";
-    self.blockCntLabel.text = @"0";
-    self.switcher.on = YES;
+    NSMutableDictionary *plist = [NSMutableDictionary dictionaryWithContentsOfFile:PLIST_FILE];
+    self.versionLabel.text = VERSION;
+    self.blockCntLabel.text =   [[plist objectForKey:KEYBLOCKCNT] description] ;
+    self.switcher.on = [[plist objectForKey:KEYON] boolValue];
 }
 
 
@@ -33,6 +36,17 @@
     [super viewDidUnload];
 }
 
-- (IBAction)onSwitchPressed:(id)sender {
+- (IBAction)onSwitchPressed:(UISwitch*)sender {
+    NSMutableDictionary *plist = [NSMutableDictionary dictionaryWithContentsOfFile:PLIST_FILE];
+    [plist setObject:@(sender.on) forKey:KEYON];
+    [plist writeToFile:PLIST_FILE atomically:YES];
+    
 }
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+}
+
 @end

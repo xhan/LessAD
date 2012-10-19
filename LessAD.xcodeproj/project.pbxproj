@@ -24,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA2BFBA016319157006294CF /* LessAD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LessAD.h; sourceTree = "<group>"; };
 		CA3A9E6F1630112500471009 /* LessAD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LessAD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3A9E731630112500471009 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CA3A9E751630112500471009 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA2BFB9F16319157006294CF /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				CA2BFBA016319157006294CF /* LessAD.h */,
+			);
+			path = shared;
+			sourceTree = SOURCE_ROOT;
+		};
 		CA3A9E641630112500471009 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +99,7 @@
 		CA3A9E791630112500471009 /* LessAD */ = {
 			isa = PBXGroup;
 			children = (
+				CA2BFB9F16319157006294CF /* shared */,
 				CA3A9E821630112500471009 /* AppDelegate.h */,
 				CA3A9E831630112500471009 /* AppDelegate.m */,
 				CA3A9E7A1630112500471009 /* Supporting Files */,

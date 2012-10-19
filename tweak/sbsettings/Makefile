@@ -1,9 +1,9 @@
 include theos/makefiles/common.mk
 
-LIBRARY_NAME = LessADToggle
-LessADToggle_FILES = Toggle.m
-LessADToggle_FRAMEWORKS = UIKit CoreGraphics
-LessADToggle_INSTALL_PATH = /var/mobile/Library/SBSettings/Toggles/sbsettings/
+LIBRARY_NAME = Toggle
+Toggle_FILES = Toggle.m
+Toggle_FRAMEWORKS = UIKit CoreGraphics
+Toggle_INSTALL_PATH = /var/mobile/Library/SBSettings/Toggles/LessAD/
 
 include $(THEOS_MAKE_PATH)/library.mk
 

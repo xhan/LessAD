@@ -12,7 +12,10 @@ package:
 	@# rm -rf $(BUILD_PATH)/*.deb
 	@# cp "tweak/$(ls -l tweak | grep deb | tail -n1 | awk '{print $(NF)}')" $(BUILD_PATH)/
 
-all:app package
+install:
+	cd tweak && make install
+
+all:app package install
 	
 clean:
 	rm -rf $(BUILD_PATH)/*

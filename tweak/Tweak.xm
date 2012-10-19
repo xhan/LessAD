@@ -1,13 +1,10 @@
 #import <UIKit/UIKit.h>
-
-
+#import "../shared/LessAD.h"
 
 
 #define RNIL {_handleAD_alloced(); return nil;}
 #define RVOD {_handleAD_alloced(); return;}
-#define PLIST_FILE @"/var/mobile/Library/Preferences/com.xhan.LessAD.plist"
-#define KEYON @"ABEnabled"
-#define KEYBLOCKCNT @"BlockCnt"
+
 
 static void _handleAD_alloced(){
 	NSMutableDictionary *plistDict = [NSMutableDictionary dictionaryWithContentsOfFile:PLIST_FILE];
@@ -320,14 +317,21 @@ adIdentify:(NSString*)adIdentify delegate:(id)adstatus {RNIL}
 	NSMutableDictionary *settings = [NSMutableDictionary dictionaryWithContentsOfFile:PLIST_FILE];
 	
 	id value = [settings objectForKey:KEYON];
-	BOOL ABEnabled =  value ? [value boolValue] : YES;	
+	if(!value)
+	{
+		value = [NSNumber numberWithBool:YES];
+		//create new plist file
+		NSDictionary*dict = [NSDictionary dictionaryWithObject:value forKey:KEYON];
+		[dict writeToFile:PLIST_FILE atomically:YES];
+	}
+	BOOL ABEnabled = [value boolValue];
 	
 	// NSLog(@"-- ctor -- %@",bundleIdentifier);
 	BOOL appBlockAD = YES;
 	// appBlockAD = [bundleIdentifier rangeOfString:@"com.qiushibaike."].location == NSNotFound;
 	if(appBlockAD && ABEnabled){
 		%init(CommonAD);
-		// %init(ApplicationHack);
+
 	}
 
 	[pool drain];
