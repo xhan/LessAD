@@ -1,4 +1,21 @@
+BUILD_PATH = build
+
+default:
+	@echo "please select commands"
+
 app:
-	@rm -rf build/*
-	xcodebuild CONFIGURATION_BUILD_DIR=build
+	xcodebuild CONFIGURATION_BUILD_DIR=$(BUILD_PATH)
+	@rm -rf $(BUILD_PATH)/*.dSYM
+	
+package:
+	cd tweak && make package	
+	@# rm -rf $(BUILD_PATH)/*.deb
+	@# cp "tweak/$(ls -l tweak | grep deb | tail -n1 | awk '{print $(NF)}')" $(BUILD_PATH)/
+
+all:app package
+	
+clean:
+	rm -rf $(BUILD_PATH)/*
+	rm -rf tweak/*.deb
+	cd tweak && make clean
 	
