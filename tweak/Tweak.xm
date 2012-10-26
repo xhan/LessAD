@@ -5,12 +5,11 @@
 // #import <Foundation/NSObjCRuntime.h>
 
 
-
 #define RNIL {_LOG;_handleAD_alloced(); return nil;}
 #define RVOD {_LOG;_handleAD_alloced(); return;}
 #define _LOG ((void)0)
 //#define _LOG _log(__PRETTY_FUNCTION__)
-
+/*
 static void _log(const char*info)
 {
 	static bool initLog = false;
@@ -19,6 +18,7 @@ static void _log(const char*info)
 	}	
 	PLOGF(@"%@",[NSString stringWithUTF8String:info]);
 }
+*/
 
 static void _handleAD_alloced(){
 
@@ -29,6 +29,21 @@ static void _handleAD_alloced(){
 	//TODO: notify messages
 }
 
+static void _log_app(NSBundle*bundle,NSString*home){
+	NSMutableArray *plistAry = [NSMutableArray arrayWithContentsOfFile:PLIST_APPS];
+	if(!plistAry) plistAry = [NSMutableArray array];
+		
+	NSMutableDictionary*info = [NSMutableDictionary dictionaryWithDictionary:[bundle infoDictionary]];
+	[info setObject:home forKey:KEY_APP_HOME_PATH];
+	[info setObject:[bundle bundlePath] forKey:KEY_APP_BUNDLE_PATH];
+	[plistAry addObject:info];
+	
+	while(plistAry.count > kMaxRecentlyAppCnt){
+		[plistAry removeObjectAtIndex:0];
+	}
+	[plistAry writeToFile:PLIST_APPS atomically:YES];
+	//TODO or use gdc to dispatch after some time
+}
 
 %group CommonAD
 
@@ -378,6 +393,6 @@ adIdentify:(NSString*)adIdentify delegate:(id)adstatus {RNIL}
 		// appBlockAD && 
 		
 	}
-
+	_log_app([NSBundle mainBundle],NSHomeDirectory());
 	[pool drain];
 }	

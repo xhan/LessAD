@@ -24,6 +24,7 @@
 		CAA19E841630674B00AB23A7 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAA19E821630674B00AB23A7 /* Icon@2x.png */; };
 		CAE3B1991639554100967DF2 /* info.html in Resources */ = {isa = PBXBuildFile; fileRef = CAE3B1981639554100967DF2 /* info.html */; };
 		CAE3B19B163955F500967DF2 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE3B19A163955F500967DF2 /* Icon-72@2x.png */; };
+		CAE3B1A7163A929700967DF2 /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE3B1A6163A929700967DF2 /* WebVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		CAA19E821630674B00AB23A7 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/app-icons/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		CAE3B1981639554100967DF2 /* info.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = info.html; sourceTree = "<group>"; };
 		CAE3B19A163955F500967DF2 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Resources/app-icons/Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
+		CAE3B1A5163A929700967DF2 /* WebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebVC.h; sourceTree = "<group>"; };
+		CAE3B1A6163A929700967DF2 /* WebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				CA3A9EBF16301CFB00471009 /* AppController.m */,
 				CA3A9EC11630508900471009 /* RootVC.h */,
 				CA3A9EC21630508900471009 /* RootVC.m */,
+				CAE3B1A5163A929700967DF2 /* WebVC.h */,
+				CAE3B1A6163A929700967DF2 /* WebVC.m */,
 			);
 			path = LessAD;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				CA3A9EC016301CFB00471009 /* AppController.m in Sources */,
 				CA3A9EC31630508900471009 /* RootVC.m in Sources */,
 				CA8A98471633C6EA00E6B664 /* H.m in Sources */,
+				CAE3B1A7163A929700967DF2 /* WebVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
