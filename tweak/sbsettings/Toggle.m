@@ -1,6 +1,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "../../shared/LessAD.h"
+#import <SpringBoard/SpringBoard.h>
+#import "theos/include/SpringBoard/SBIcon.h"
+#import "theos/include/SpringBoard/SBApplication.h"
+#import "theos/include/SpringBoard/SBApplicationController.h"
+#import "theos/include/SpringBoard/SBUIController.h"
+
 
 
 // Required
@@ -32,6 +38,16 @@ float getDelayTime()
 	return 0.0f;
 }
 
+
+void invokeHoldAction()
+{
+	// SBApplication *app = [[objc_getClass("SBApplicationController") sharedInstance] applicationWithDisplayIdentifier:@"com.xhan.LessAD"];
+	// [[objc_getClass("SBUIController") sharedInstance] activateApplicationFromSwitcher: app];
+	// SBApplication *app = [[SBApplicationController sharedInstance] applicationWithDisplayIdentifier:@"com.xhan.LessAD"];
+	// [[SBUIController sharedInstance] activateApplicationAnimated: app];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"lessad://go"]];
+}
+
 /* Optional
 
 BOOL getStateFast()
@@ -39,10 +55,7 @@ BOOL getStateFast()
 	
 }
 
-void invokeHoldAction()
-{
-	
-}
+
 
 void closeWindow()
 {

@@ -1,9 +1,10 @@
-Package: com.xhan.lessad.tweak
-Name: tweak
+Package: com.xhan.lessad
+Name: LessAD -广告滤神- 
 Depends: firmware (>= 5.0), mobilesubstrate
 Version: 0.7.0
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
-Maintainer: xhan
-Author: xhan
+Description: 可清除软件内的各种烦人广告条，健康安全环保，无毒无害无副作用
+Maintainer: xhan <xhan87@gmail.com>
+Author: xhan <xhan87@gmail.com>
+Homepage: http://ixhan.com
 Section: Tweaks

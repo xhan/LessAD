@@ -18,16 +18,14 @@
 }
 
 
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewDidAppear:animated];
     NSMutableDictionary *plist = [NSMutableDictionary dictionaryWithContentsOfFile:PLIST_FILE];
     self.versionLabel.text = VERSION;
     self.blockCntLabel.text =   [[plist objectForKey:KEYBLOCKCNT] description] ;
     self.switcher.on = [[plist objectForKey:KEYON] boolValue];
 }
-
-
 
 - (void)viewDidUnload {
     [self setSwitcher:nil];

@@ -23,6 +23,7 @@ static AppController*_share = nil;
 + (void)release
 {
     _share = nil;
+    
 }
 - (id)init
 {
@@ -33,6 +34,7 @@ static AppController*_share = nil;
         _share = self;
     }
 
+    [NSStringFromClass(_share.class) isEqualToString:@"QQPushBannerView_Advertisement"];
     return _share;
 }
 

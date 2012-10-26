@@ -1,12 +1,27 @@
+//# define DEBUG
 #import <UIKit/UIKit.h>
 #import "../shared/LessAD.h"
+#import "../shared/PLOG.h"
+// #import <Foundation/NSObjCRuntime.h>
 
 
-#define RNIL {_handleAD_alloced(); return nil;}
-#define RVOD {_handleAD_alloced(); return;}
 
+#define RNIL {_LOG;_handleAD_alloced(); return nil;}
+#define RVOD {_LOG;_handleAD_alloced(); return;}
+#define _LOG ((void)0)
+//#define _LOG _log(__PRETTY_FUNCTION__)
+
+static void _log(const char*info)
+{
+	static bool initLog = false;
+	if(!initLog){
+		[PLLOG_File createDefaultLogger:@"/var/mobile/Library/Logs/ad.log"];
+	}	
+	PLOGF(@"%@",[NSString stringWithUTF8String:info]);
+}
 
 static void _handleAD_alloced(){
+
 	NSMutableDictionary *plistDict = [NSMutableDictionary dictionaryWithContentsOfFile:PLIST_FILE];
 	int cnt = [[plistDict objectForKey:KEYBLOCKCNT] intValue] + 1;
 	[plistDict setValue:[NSNumber numberWithInt:cnt] forKey:KEYBLOCKCNT];
@@ -18,8 +33,7 @@ static void _handleAD_alloced(){
 %group CommonAD
 
 /*
- Admob
- "Guohe 果合"  "adsmongo 芒果"
+ Admob "Guohe 果合"  "adsmongo 芒果"
  "domob 多盟" iAD MobWin Wooboo Adwo "youmi 有米广告"  "wiad 微云"
  SmartMad--亿动智道	"mobiSage 艾德思奇"	"Millennial Media"	InMobi baiduMunion 
  "AdChina 易传媒" AdFracta airADView "CaseeAd 架势无线"
@@ -40,15 +54,12 @@ static void _handleAD_alloced(){
 @interface GHAdView :UIView
 @end
 %hook GHAdView
-- (void)loadAd{}
-- (void)resumeAdRequest{}
-- (void)preloadAd{}
+// - (void)loadAd{}
+// - (void)resumeAdRequest{}
+// - (void)preloadAd{}
+- (id)initWithAdUnitId:(NSString *)adUnitId size:(CGSize)size{RNIL}
 %end
-@interface GHBaseAdapter :NSObject
-@end
-%hook GHBaseAdapter
-- (id)initWithAdView:(GHAdView *)adView {RNIL}
-%end
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - 芒果 adsmongo
@@ -58,7 +69,7 @@ static void _handleAD_alloced(){
 + (AdMoGoView *)requestAdMoGoViewWithDelegate:(id)delegate AndAdType:(int)type {RNIL}
 + (AdMoGoView *)requestAdMoGoViewWithDelegate:(id)delegate AndAdType:(int)type ExpressMode:(BOOL)express {RNIL}
 %end
-	
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - 多盟 domob
 @interface DoMobView : UIView
@@ -117,8 +128,6 @@ horizontalOrientation:(int) horizontal{RNIL}
 - (id)initWithAdwoPid:(NSString *)unid adIdType:(SInt8) adIdType adTestMode:(SInt8) adTestMode adSizeForPad:(SInt8)adSizeForPad{RNIL}
 %end
 
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - youmi 有米广告
 %hook YouMiView
@@ -142,7 +151,6 @@ horizontalOrientation:(int) horizontal{RNIL}
 - (id)init {RNIL}
 - (id)initWithFrame:(CGRect)s {RNIL}
 %end
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - mobiSage 艾德思奇
@@ -203,6 +211,7 @@ adIdentify:(NSString*)adIdentify delegate:(id)d {RNIL}
 + (FtadHtml5BannerView*)newFtadHtml5BannerViewWithPointAndSize:(CGPoint)point size:(CGSize)size 
 adIdentify:(NSString*)adIdentify delegate:(id)adstatus {RNIL}
 %end
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - airADView
 %hook airADView
@@ -305,15 +314,43 @@ adIdentify:(NSString*)adIdentify delegate:(id)adstatus {RNIL}
 
 // end of group	
 %end	
+
+
+%group WEIBO
+%hook WBAdManager
+- (void)loadServerAd{RVOD}
+- (void)presentAds{RVOD}
+%end
+
+%hook WBAdViewContainer
+- (void)presentNextAd{RVOD}
+- (void)presentAds{RVOD}
+%end
+
+%hook HomeViewController
+- (void)showAd{RVOD}
+%end
+%end	
 	
+
+%group QQ
+	
+%hook UITableView
+- (void)setTableHeaderView:(UIView*)v
+{
+	BOOL ad = [v isKindOfClass:NSClassFromString(@"QQPushBannerView_Advertisement")];
+	if(ad) return;
+	%orig(v);
+}
+%end	
+%end		
 	
 %ctor
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	// init basic group
-	%init;
-	// NSString *bundleIdentifier = [NSBundle mainBundle].bundleIdentifier;
-	
+	// %init;
+	NSString *bundleIdentifier = [NSBundle mainBundle].bundleIdentifier;
 	NSMutableDictionary *settings = [NSMutableDictionary dictionaryWithContentsOfFile:PLIST_FILE];
 	
 	id value = [settings objectForKey:KEYON];
@@ -326,12 +363,20 @@ adIdentify:(NSString*)adIdentify delegate:(id)adstatus {RNIL}
 	}
 	BOOL ABEnabled = [value boolValue];
 	
-	// NSLog(@"-- ctor -- %@",bundleIdentifier);
+
 	BOOL appBlockAD = YES;
 	// appBlockAD = [bundleIdentifier rangeOfString:@"com.qiushibaike."].location == NSNotFound;
-	if(appBlockAD && ABEnabled){
-		%init(CommonAD);
-
+	if(ABEnabled){
+		if ([bundleIdentifier isEqualToString:@"com.sina.weibo"])
+			%init(WEIBO);
+		else if ([bundleIdentifier isEqualToString:@"com.tencent.mqq"]){			
+			%init(QQ);
+//			%init(CommonAD);
+		}
+		else 
+			%init(CommonAD);		
+		// appBlockAD && 
+		
 	}
 
 	[pool drain];
