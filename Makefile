@@ -1,12 +1,12 @@
 BUILD_PATH = build
 
 default:
-	@#echo "please select commands"
+	# @echo "please select commands"
 	cd tweak && make
 
 app:
 	xcodebuild CONFIGURATION_BUILD_DIR=$(BUILD_PATH)
-	@rm -rf $(BUILD_PATH)/*.dSYM
+	# @rm -rf $(BUILD_PATH)/*.dSYM
 
 package:
 	cd tweak && make package

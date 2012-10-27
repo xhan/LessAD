@@ -11,6 +11,8 @@
 
 #define KEY_APP_BUNDLE_PATH	@"KEY_APP_BUNDLE_PATH"
 #define KEY_APP_HOME_PATH   @"KEY_APP_HOME_PATH"
+#define KEY_APP_IDENTIFY    @"KEY_APP_ID"
 
-#define kMaxRecentlyAppCnt 6
+#define kMaxRecentlyAppCnt 9
 #define kProjectURL        @"http://ixhan.com/project/lessad"
+#define kXhanMail          @"xhan87@gmail.com"

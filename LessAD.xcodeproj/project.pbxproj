@@ -24,6 +24,9 @@
 		CAE3B1991639554100967DF2 /* info.html in Resources */ = {isa = PBXBuildFile; fileRef = CAE3B1981639554100967DF2 /* info.html */; };
 		CAE3B19B163955F500967DF2 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE3B19A163955F500967DF2 /* Icon-72@2x.png */; };
 		CAE3B1A7163A929700967DF2 /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE3B1A6163A929700967DF2 /* WebVC.m */; };
+		CAE3B1AB163AA02B00967DF2 /* AppListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE3B1AA163AA02B00967DF2 /* AppListVC.m */; };
+		CAE3B1AE163AE73500967DF2 /* PLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE3B1AD163AE73500967DF2 /* PLAlertView.m */; };
+		CAE3B1B0163AE7B000967DF2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE3B1AF163AE7B000967DF2 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,11 @@
 		CAE3B19A163955F500967DF2 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Resources/app-icons/Icon-72@2x.png"; sourceTree = SOURCE_ROOT; };
 		CAE3B1A5163A929700967DF2 /* WebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebVC.h; sourceTree = "<group>"; };
 		CAE3B1A6163A929700967DF2 /* WebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebVC.m; sourceTree = "<group>"; };
+		CAE3B1A9163AA02B00967DF2 /* AppListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppListVC.h; sourceTree = "<group>"; };
+		CAE3B1AA163AA02B00967DF2 /* AppListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppListVC.m; sourceTree = "<group>"; };
+		CAE3B1AC163AE73500967DF2 /* PLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAlertView.h; sourceTree = "<group>"; };
+		CAE3B1AD163AE73500967DF2 /* PLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAlertView.m; sourceTree = "<group>"; };
+		CAE3B1AF163AE7B000967DF2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE3B1B0163AE7B000967DF2 /* MessageUI.framework in Frameworks */,
 				CA3A9E741630112500471009 /* UIKit.framework in Frameworks */,
 				CA3A9E761630112500471009 /* Foundation.framework in Frameworks */,
 				CA3A9E781630112500471009 /* CoreGraphics.framework in Frameworks */,
@@ -71,6 +80,8 @@
 		CA2BFB9F16319157006294CF /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				CAE3B1AC163AE73500967DF2 /* PLAlertView.h */,
+				CAE3B1AD163AE73500967DF2 /* PLAlertView.m */,
 				CA8A98451633C6EA00E6B664 /* H.h */,
 				CA8A98461633C6EA00E6B664 /* H.m */,
 				CA2BFBA016319157006294CF /* LessAD.h */,
@@ -98,6 +109,7 @@
 		CA3A9E721630112500471009 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CAE3B1AF163AE7B000967DF2 /* MessageUI.framework */,
 				CA3A9E731630112500471009 /* UIKit.framework */,
 				CA3A9E751630112500471009 /* Foundation.framework */,
 				CA3A9E771630112500471009 /* CoreGraphics.framework */,
@@ -113,6 +125,8 @@
 				CA3A9E831630112500471009 /* AppDelegate.m */,
 				CA3A9E7A1630112500471009 /* Supporting Files */,
 				CA3A9E951630122900471009 /* Storyboard.storyboard */,
+				CAE3B1A9163AA02B00967DF2 /* AppListVC.h */,
+				CAE3B1AA163AA02B00967DF2 /* AppListVC.m */,
 				CA3A9EC11630508900471009 /* RootVC.h */,
 				CA3A9EC21630508900471009 /* RootVC.m */,
 				CAE3B1A5163A929700967DF2 /* WebVC.h */,
@@ -214,6 +228,8 @@
 				CA3A9EC31630508900471009 /* RootVC.m in Sources */,
 				CA8A98471633C6EA00E6B664 /* H.m in Sources */,
 				CAE3B1A7163A929700967DF2 /* WebVC.m in Sources */,
+				CAE3B1AB163AA02B00967DF2 /* AppListVC.m in Sources */,
+				CAE3B1AE163AE73500967DF2 /* PLAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,13 +29,24 @@ static void _handleAD_alloced(){
 	//TODO: notify messages
 }
 
+static bool isValidApp()
+{
+	NSString* path = [[NSBundle mainBundle] bundlePath];
+	return [[path pathExtension] isEqualToString:@"app"] && [path rangeOfString:@"/Applications/"].location != NSNotFound;
+}
+
 static void _log_app(NSBundle*bundle,NSString*home){
+	
+	
 	NSMutableArray *plistAry = [NSMutableArray arrayWithContentsOfFile:PLIST_APPS];
 	if(!plistAry) plistAry = [NSMutableArray array];
 		
-	NSMutableDictionary*info = [NSMutableDictionary dictionaryWithDictionary:[bundle infoDictionary]];
+//	NSMutableDictionary*info = [NSMutableDictionary dictionaryWithDictionary:[bundle infoDictionary]];
+	NSMutableDictionary*info = [NSMutableDictionary dictionary];
 	[info setObject:home forKey:KEY_APP_HOME_PATH];
 	[info setObject:[bundle bundlePath] forKey:KEY_APP_BUNDLE_PATH];
+	[info setObject:bundle.bundleIdentifier forKey:KEY_APP_IDENTIFY];
+	
 	[plistAry addObject:info];
 	
 	while(plistAry.count > kMaxRecentlyAppCnt){
@@ -363,36 +374,35 @@ adIdentify:(NSString*)adIdentify delegate:(id)adstatus {RNIL}
 %ctor
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	// init basic group
-	// %init;
-	NSString *bundleIdentifier = [NSBundle mainBundle].bundleIdentifier;
-	NSMutableDictionary *settings = [NSMutableDictionary dictionaryWithContentsOfFile:PLIST_FILE];
+	if(isValidApp()){
+		NSString *bundleIdentifier = [NSBundle mainBundle].bundleIdentifier;
+		NSMutableDictionary *settings = [NSMutableDictionary dictionaryWithContentsOfFile:PLIST_FILE];
 	
-	id value = [settings objectForKey:KEYON];
-	if(!value)
-	{
-		value = [NSNumber numberWithBool:YES];
-		//create new plist file
-		NSDictionary*dict = [NSDictionary dictionaryWithObject:value forKey:KEYON];
-		[dict writeToFile:PLIST_FILE atomically:YES];
-	}
-	BOOL ABEnabled = [value boolValue];
+		id value = [settings objectForKey:KEYON];
+		if(!value)
+		{
+			value = [NSNumber numberWithBool:YES];
+			//create new plist file
+			NSDictionary*dict = [NSDictionary dictionaryWithObject:value forKey:KEYON];
+			[dict writeToFile:PLIST_FILE atomically:YES];
+		}
+		BOOL ABEnabled = [value boolValue];
 	
 
-	BOOL appBlockAD = YES;
-	// appBlockAD = [bundleIdentifier rangeOfString:@"com.qiushibaike."].location == NSNotFound;
-	if(ABEnabled){
-		if ([bundleIdentifier isEqualToString:@"com.sina.weibo"])
-			%init(WEIBO);
-		else if ([bundleIdentifier isEqualToString:@"com.tencent.mqq"]){			
-			%init(QQ);
-//			%init(CommonAD);
-		}
-		else 
-			%init(CommonAD);		
-		// appBlockAD && 
+		BOOL appBlockAD = YES;
+		// appBlockAD = [bundleIdentifier rangeOfString:@"com.qiushibaike."].location == NSNotFound;
+		if(ABEnabled){
+			if ([bundleIdentifier isEqualToString:@"com.sina.weibo"])
+				%init(WEIBO);
+			else if ([bundleIdentifier isEqualToString:@"com.tencent.mqq"]){			
+				%init(QQ);
+			}
+			else 
+				%init(CommonAD);		
 		
+		}
+		_log_app([NSBundle mainBundle],NSHomeDirectory());
 	}
-	_log_app([NSBundle mainBundle],NSHomeDirectory());
+
 	[pool drain];
 }	
