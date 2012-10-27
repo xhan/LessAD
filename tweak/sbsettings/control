@@ -3,7 +3,7 @@ Name: sbsettings
 Depends: sbsettings
 Version: 0.0.1
 Architecture: iphoneos-arm
-Description: An awesome SBSettings toggle of some sort!!
+Description: An awesome SBSettings toggle of LessAD!!
 Maintainer: xhan
 Author: xhan
 Section: Addons (SBSettings)

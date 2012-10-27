@@ -1,9 +1,9 @@
 Package: com.xhan.lessad
 Name: LessAD -广告滤神- 
 Depends: firmware (>= 5.0), mobilesubstrate
-Version: 0.7.0
+Version: 0.9.0
 Architecture: iphoneos-arm
-Description: 可清除软件内的各种烦人广告条，健康安全环保，无毒无害无副作用
+Description: 清除软件内的各种烦人广告条（支持新浪和QQs），健康安全环保，无毒无害无副作用
 Maintainer: xhan <xhan87@gmail.com>
 Author: xhan <xhan87@gmail.com>
 Homepage: http://ixhan.com

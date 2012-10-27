@@ -13,7 +13,6 @@
 		CA3A9E7E1630112500471009 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA3A9E7C1630112500471009 /* InfoPlist.strings */; };
 		CA3A9E801630112500471009 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3A9E7F1630112500471009 /* main.m */; };
 		CA3A9E841630112500471009 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3A9E831630112500471009 /* AppDelegate.m */; };
-		CA3A9E861630112500471009 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CA3A9E851630112500471009 /* Default.png */; };
 		CA3A9E881630112500471009 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA3A9E871630112500471009 /* Default@2x.png */; };
 		CA3A9E8A1630112500471009 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA3A9E891630112500471009 /* Default-568h@2x.png */; };
 		CA3A9E961630122900471009 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3A9E951630122900471009 /* Storyboard.storyboard */; };
@@ -41,7 +40,6 @@
 		CA3A9E811630112500471009 /* LessAD-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LessAD-Prefix.pch"; sourceTree = "<group>"; };
 		CA3A9E821630112500471009 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CA3A9E831630112500471009 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CA3A9E851630112500471009 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CA3A9E871630112500471009 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CA3A9E891630112500471009 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CA3A9E951630122900471009 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 				CA3A9E7C1630112500471009 /* InfoPlist.strings */,
 				CA3A9E7F1630112500471009 /* main.m */,
 				CA3A9E811630112500471009 /* LessAD-Prefix.pch */,
-				CA3A9E851630112500471009 /* Default.png */,
 				CA3A9E871630112500471009 /* Default@2x.png */,
 				CA3A9E891630112500471009 /* Default-568h@2x.png */,
 			);
@@ -205,7 +202,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA3A9E7E1630112500471009 /* InfoPlist.strings in Resources */,
-				CA3A9E861630112500471009 /* Default.png in Resources */,
 				CA3A9E881630112500471009 /* Default@2x.png in Resources */,
 				CA3A9E8A1630112500471009 /* Default-568h@2x.png in Resources */,
 				CA3A9E961630122900471009 /* Storyboard.storyboard in Resources */,
