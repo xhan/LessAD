@@ -6,7 +6,6 @@ default:
 
 app:
 	xcodebuild CONFIGURATION_BUILD_DIR=$(BUILD_PATH)
-	# @rm -rf $(BUILD_PATH)/*.dSYM
 
 package:
 	cd tweak && make package

@@ -13,5 +13,7 @@ SUBPROJECTS += sbsettings
 include $(THEOS_MAKE_PATH)/aggregate.mk
 
 # the step before package
-internal-stage::	
+internal-stage::
 	$(ECHO_NOTHING)cp -r ../build/ $(THEOS_STAGING_DIR)/Applications/$(ECHO_END)
+	$(ECHO_NOTHING)rm -rf $(THEOS_STAGING_DIR)/Applications/*.dSYM$(ECHO_END)
+	$(ECHO_NOTHING)find $(THEOS_STAGING_DIR) -name .DS_Store | xargs rm -rf$(ECHO_END)
