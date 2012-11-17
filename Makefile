@@ -22,3 +22,4 @@ clean:
 	rm -rf tweak/*.deb
 	cd tweak && make clean
 
+# TARGET_CXX = xcrun --sdk iphoneos clang
